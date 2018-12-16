@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1 (Python 3.7.1 on darwin)" generated="20181216 19:43:51.089" rpa="false">
+<suite id="s1" name="Test Login" source="/Users/appleteam/PycharmProjects/PythonRobot/test_login.robot">
+<test id="s1-t1" name="Wrong login">
+<kw name="Create Driver" library="DriverManager">
+<assign>
+<var>${driver}</var>
+</assign>
+<msg timestamp="20181216 19:43:53.023" level="INFO">${driver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="a77a7915570465b8a38bed89ce908dac")&gt;</msg>
+<status status="PASS" starttime="20181216 19:43:51.219" endtime="20181216 19:43:53.023"></status>
+</kw>
+<kw name="First Login" library="LoginPageRobot">
+<arguments>
+<arg>${driver}</arg>
+<arg>${wrong_username}</arg>
+<arg>${wrong_password}</arg>
+</arguments>
+<status status="PASS" starttime="20181216 19:43:53.024" endtime="20181216 19:43:55.287"></status>
+</kw>
+<kw name="Assert Url" library="LoginPageRobot">
+<arguments>
+<arg>${driver}</arg>
+<arg>${login_page_url}</arg>
+</arguments>
+<status status="PASS" starttime="20181216 19:43:55.288" endtime="20181216 19:43:55.311"></status>
+</kw>
+<kw name="Close Driver" library="DriverManager">
+<arguments>
+<arg>${driver}</arg>
+</arguments>
+<status status="PASS" starttime="20181216 19:43:55.311" endtime="20181216 19:43:55.311"></status>
+</kw>
+<status status="PASS" starttime="20181216 19:43:51.218" endtime="20181216 19:43:55.312" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Correct login">
+<kw name="Create Driver" library="DriverManager">
+<assign>
+<var>${driver}</var>
+</assign>
+<msg timestamp="20181216 19:43:57.058" level="INFO">${driver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="aa3e65d13a700ff12350f9450fda2f0d")&gt;</msg>
+<status status="PASS" starttime="20181216 19:43:55.313" endtime="20181216 19:43:57.058"></status>
+</kw>
+<kw name="First Login" library="LoginPageRobot">
+<arguments>
+<arg>${driver}</arg>
+<arg>${correct_username}</arg>
+<arg>${correct_password}</arg>
+</arguments>
+<status status="PASS" starttime="20181216 19:43:57.058" endtime="20181216 19:43:59.750"></status>
+</kw>
+<kw name="Assert Url" library="LoginPageRobot">
+<arguments>
+<arg>${driver}</arg>
+<arg>${dashboard_page_url}</arg>
+</arguments>
+<msg timestamp="20181216 19:43:59.760" level="FAIL">AssertionError</msg>
+<status status="FAIL" starttime="20181216 19:43:59.751" endtime="20181216 19:43:59.761"></status>
+</kw>
+<status status="FAIL" starttime="20181216 19:43:55.312" endtime="20181216 19:43:59.761" critical="yes">AssertionError</status>
+</test>
+<doc>Login Tests</doc>
+<status status="FAIL" starttime="20181216 19:43:51.092" endtime="20181216 19:43:59.763"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1">Critical Tests</stat>
+<stat pass="1" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="1" id="s1" name="Test Login">Test Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
